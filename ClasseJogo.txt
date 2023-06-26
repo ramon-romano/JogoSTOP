@@ -1,0 +1,53 @@
+public class Jogo {
+	
+	private String nome;
+	private String animal;
+	private String comida;
+	private String marca;
+	private String cep;
+	private String cor;
+	
+
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getAnimal() {
+		return animal;
+	}
+	public void setAnimal(String animal) {
+		this.animal = animal;
+	}
+	public String getComida() {
+		return comida;
+	}
+	public void setComida(String comida) {
+		this.comida = comida;
+	}
+	public String getMarca() {
+		return marca;
+	}
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+	public String getCor() {
+		return cor;
+	}
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+	
+	
+	
+	
+
+}

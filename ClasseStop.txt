@@ -1,0 +1,17 @@
+
+
+public class Stop extends Jogo {
+	
+	private String stopclass;
+
+	public String getStopclass() {
+		return stopclass;
+	}
+
+	public void setStopclass(String stopclass) {
+		this.stopclass = stopclass;
+	}
+	
+	
+	
+}

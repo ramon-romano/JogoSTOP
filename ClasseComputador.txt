@@ -1,0 +1,39 @@
+public class Computador {
+	
+	private int opcao;
+	private int rodada;
+	private String Letra;
+	private int pontuacao;
+	
+	public int getOpcao() {
+		return opcao;
+	}
+	public void setOpcao(int opcao) {
+		this.opcao = opcao;
+	}
+	public int getRodada() {
+		return rodada;
+	}
+	public void setRodada(int rodada) {
+		this.rodada = rodada;
+	}
+	public String getLetra() {
+		return Letra;
+	}
+	public void setLetra(String letra) {
+		Letra = letra;
+	}
+	public int getPontuacao() {
+		return pontuacao;
+	}
+	public void setPontuacao(int pontuacao) {
+		this.pontuacao = pontuacao;
+	}
+	
+	
+
+}
+	
+
+}
+

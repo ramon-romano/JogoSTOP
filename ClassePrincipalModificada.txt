@@ -1,0 +1,180 @@
+Scanner scanner = new Scanner(System.in);
+		Random random = new Random();
+			
+		 System.out.println("Olá Bem-Vindo ao STOP!");
+         System.out.println("");
+         System.out.println("REGRAS DO JOGO : ");
+         System.out.println("");
+         System.out.println("1- Todos os jogadores devem preencher cada categoria com uma palavra que comece com a letra escolhida.");
+         System.out.println("2- Assim que o jogador terminar a sua rodada, aparecerá a palavra 'STOP' e todos os jogadores devem \n parar de escrever imediatamente, mesmo não conseguido finalizar seu jogo.");
+         System.out.println("3- Os jogadores começam a comparar suas respostas e determinar se estão corretas e válidas. As palavras devem \n começar com a letra escolhida e se encaixar nas categorias correspondentes. Se uma palavra for considerada \n inválida, ela é descartada.");
+         System.out.println("4- Os jogadores recebem pontos por cada resposta válida e única que não tenha sido repetida por outros jogadores,\n e serão mostradas ao final da rodada.");
+         System.out.println("");
+         System.out.println("BOM JOGO!");
+         System.out.println("");
+		 System.out.println("Informe seu apelido: ");
+		 String apelido = scanner.nextLine();
+		
+		Jogador jogador = new Jogador();
+		jogador.setApelido(apelido);
+		
+		System.out.println("Informe sua idade: ");
+		int idade = scanner.nextInt();
+		
+		Jogador jogador1 = new Jogador();
+		jogador.setIdade(idade);
+		
+		System.out.println("");
+		System.out.println("Digite 1 para SIM para continuar e 2 para NÂO e cancelar: ");
+		System.out.println("");
+		System.out.println("1 - SIM");
+		System.out.println("2 - NÂO");
+		int opcao = scanner.nextInt();	
+		
+		Computador computador = new Computador();
+		computador.setOpcao(opcao);
+			
+		if(opcao == 1) {
+		
+		System.out.println("Qual o número de rodadas que deseja? ");
+		int numRodadas = scanner.nextInt();
+		scanner.nextLine();
+		
+		Computador computador1 = new Computador();
+		computador.setRodada(numRodadas);
+			
+		int pontuacaoTotal = 0;
+		List<String> palavrasUtilizadas = new ArrayList<>();
+		
+		System.out.println("Rodada 1 (Enter para começar)" );
+		for(int rodada = 1; rodada <= numRodadas; rodada++ ) {
+							
+			String letra = String.valueOf((char) (random.nextInt(26)+ 'A'));
+			scanner.nextLine();
+			
+			
+			Computador computador2 = new Computador();
+			computador.setLetra(letra);
+			
+			System.out.println("A letra sorteada é: " + letra);
+			System.out.println("");
+
+			  String nome = obterPalavraValida(scanner, palavrasUtilizadas, "NOME");
+              palavrasUtilizadas.add(nome.toUpperCase());
+
+              String animal = obterPalavraValida(scanner, palavrasUtilizadas, "ANIMAL");
+              palavrasUtilizadas.add(animal.toUpperCase());
+
+              String comida = obterPalavraValida(scanner, palavrasUtilizadas, "COMIDA");
+              palavrasUtilizadas.add(comida.toUpperCase());
+
+              String marca = obterPalavraValida(scanner, palavrasUtilizadas, "MARCA");
+              palavrasUtilizadas.add(marca.toUpperCase());
+
+              String cep = obterPalavraValida(scanner, palavrasUtilizadas, "CEP");
+              palavrasUtilizadas.add(cep.toUpperCase());
+
+              String cor = obterPalavraValida(scanner, palavrasUtilizadas, "COR");
+              palavrasUtilizadas.add(cor.toUpperCase());
+
+              Stop stopclass = new Stop();
+              String stop = obterPalavraValida(scanner, palavrasUtilizadas, "STOP");
+
+		
+			boolean letraCorreta = nome.substring(0, 1).toUpperCase().equals(letra);
+			boolean letraCorreta1 = animal.substring(0, 1).toUpperCase().equals(letra);
+			boolean letraCorreta2 = comida.substring(0, 1).toUpperCase().equals(letra);
+			boolean letraCorreta3 = marca.substring(0, 1).toUpperCase().equals(letra);
+			boolean letraCorreta4 = cep.substring(0, 1).toUpperCase().equals(letra);
+			boolean letraCorreta5 = cor.substring(0, 1).toUpperCase().equals(letra);
+			
+			int pontuacaoRodada = 0;
+			
+			
+			
+			
+			
+			
+			if(letraCorreta == false){
+				System.out.println("Sua palavra não vale!");
+			} else {
+				System.out.println(nome + " +10");
+				pontuacaoRodada += 10;
+			}
+			if(letraCorreta1 == false) {
+				System.out.println("Sua palavra não vale!");
+			} else {
+				System.out.println(animal + " +10");
+				pontuacaoRodada += 10;
+			}
+			if(letraCorreta2 == false) {
+				System.out.println("Sua palavra não vale!");
+			} else {
+				System.out.println(comida + " +10");
+				pontuacaoRodada += 10;
+			}
+			if(letraCorreta3 == false) {
+				System.out.println("Sua palavra não vale!");
+			} else {
+				System.out.println(marca + " +10");
+				pontuacaoRodada += 10;
+			}
+			if(letraCorreta4 == false) {
+				System.out.println("Sua palavra não vale!");
+			} else {
+				System.out.println(cep + " +10");
+				pontuacaoRodada += 10;
+			}
+			if(letraCorreta5 == false) {
+				System.out.println("Sua palavra não vale!");
+			} else {
+				System.out.println(cor + " +10");
+				pontuacaoRodada += 10;
+			}
+			
+			
+			
+			System.out.println();	
+			System.out.println("Sua pontuação total desta rodada foi: " + pontuacaoRodada );
+
+			System.out.println("Informe quantos pontos deseja eliminar.(cada classe vale 10 pontos)");
+			int alteracao = scanner.nextInt();
+			
+			System.out.println("Sua pontuação total desta rodada foi: " + (pontuacaoRodada - alteracao));
+			
+			Computador computador3 = new Computador();
+			computador.setPontuacao(pontuacaoTotal);
+			
+			pontuacaoTotal += pontuacaoRodada - alteracao;
+				
+		} 
+		
+		System.out.println("Sua pontuação final foi: " + pontuacaoTotal );
+		
+		Pontfinal pontfinal = new Pontfinal(null);
+		pontfinal.setPontuacaofinal(null);
+		
+		System.out.println("Fim de Jogo!");
+		
+		
+		
+		} else if(opcao == 2) {
+			System.out.println("Obrigado pela sua atenção!");
+		} else {
+			System.out.println("Selecione uma das duas alternativas acima!!");
+		}
+
+	}
+	
+	public static String obterPalavraValida(Scanner scanner, List<String> palavrasUtilizadas, String categoria) {
+		while(true) {
+			System.out.println(categoria);
+			String palavra = scanner.nextLine();
+			if(palavrasUtilizadas.contains(palavra.toUpperCase())) {
+				System.out.println("Está palavra já foi utilizada!");
+			} else {
+				return palavra;
+			}
+			}
+	}
+}

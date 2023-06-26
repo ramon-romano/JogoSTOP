@@ -1,0 +1,20 @@
+public class Pontfinal extends Computador{
+	
+	private String pontuacaofinal;
+	
+	public Pontfinal(String pontuacaofinal) {
+		super();
+		this.pontuacaofinal = pontuacaofinal;
+	}
+
+	public String getPontuacaofinal() {
+		return pontuacaofinal;
+	}
+
+	public void setPontuacaofinal(String pontuacaofinal) {
+		this.pontuacaofinal = pontuacaofinal;
+	}
+	
+	
+
+}
